@@ -2,7 +2,14 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { MENU_ITEMS } from "../constants";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const API_KEY = import.meta.env.VITE_API_KEY;
+
+if (!API_KEY) {
+  throw new Error("❌ Missing VITE_API_KEY");
+}
+
+const ai = new GoogleGenAI({ apiKey: API_KEY });
+
 
 export const parseVoiceCommand = async (transcript: string) => {
   // Gửi ID, Tên và Giá để AI map chính xác và lấy được giá tiền
