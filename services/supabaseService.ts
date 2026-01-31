@@ -3,8 +3,13 @@ import { User, Order } from '../types';
 
 // Cấu hình kết nối Supabase
 // QUAN TRỌNG: Hãy đảm bảo bạn đã điền đúng URL và Anon Key của dự án Supabase của mình
-const SUPABASE_URL = (process.env as any).SUPABASE_URL || 'https://mhmvtywqtaqikaubhhmf.supabase.co';
-const SUPABASE_ANON_KEY = (process.env as any).SUPABASE_ANON_KEY || 'sb_publishable_lTDNdWmRZaO2VF-oCs2zvg_7NSzJpCa';
+const SUPABASE_URL =
+  import.meta.env.VITE_SUPABASE_URL ||
+  'https://mhmvtywqtaqikaubhhmf.supabase.co';
+
+const SUPABASE_ANON_KEY =
+  import.meta.env.VITE_SUPABASE_ANON_KEY ||
+  'sb_publishable_lTDNdWmRZaO2VF-oCs2zvg_7NSzJpCa';
 
 const headers = {
   'apikey': SUPABASE_ANON_KEY,
